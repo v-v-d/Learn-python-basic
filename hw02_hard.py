@@ -35,10 +35,7 @@ def is_correct(cond1, cond2, item=str):
     return True if len(item) == cond1 and 1 <= int(item) <= cond2 else False
 
 
-date_items = date.split('.')
-day = date_items[0]
-month = date_items[1]
-year = date_items[2]
+day, month, year = date.split('.')
 
 month_days_num = {
     1: 31,

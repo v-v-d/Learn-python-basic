@@ -15,13 +15,16 @@
 
 fruits = ["яблоко", "банан", "киви", "арбуз"]
 
-max_fruit_chars = len(fruits[0])
+# max_fruit_chars = len(fruits[0])
+#
+# for fruit in fruits:
+#     if len(fruit) > max_fruit_chars:
+#         max_fruit_chars = len(fruit)
 
-for fruit in fruits:
-    if len(fruit) > max_fruit_chars:
-        max_fruit_chars = len(fruit)
+max_fruit_chars = len(max(fruits, key=len))
 
-[print(f'{num}. {fruit:>{max_fruit_chars}}') for num, fruit in enumerate(fruits, start=1)]
+# [print(f'{num}. {fruit:>{max_fruit_chars}}') for num, fruit in enumerate(fruits, start=1)]
+[print(f'{num}. {fruit.rjust(max_fruit_chars)}') for num, fruit in enumerate(fruits, start=1)]
 
 # Задача-2:
 # Даны два произвольные списка.

@@ -67,11 +67,18 @@ months = {
 date = '02.11.2013'
 # date = input('Введите дату в формате dd.mm.yyyy: ')
 
+day, month, year = date.split(".")
+
 try:
-    print(f'{days[date.split(".")[0]]} {months[date.split(".")[1]]} {date.split(".")[2]} года')
+    print(f'{days[day]} {months[month]} {year} года')
 except KeyError:
     print('Неверный формат даты. Необходимо ввести дату в формате dd.mm.yyyy')
 
+# try:
+#     print(f'{days[date.split(".")[0]]} {months[date.split(".")[1]]} {date.split(".")[2]} года')
+# except KeyError:
+#     print('Неверный формат даты. Необходимо ввести дату в формате dd.mm.yyyy')
+#
 # Задача-3: Напишите алгоритм, заполняющий список произвольными целыми числами
 # в диапазоне от -100 до 100. В списке должно быть n - элементов.
 # Подсказка:
@@ -93,6 +100,7 @@ print(random_list)
 lst = [1, 2, 4, 5, 6, 2, 5, 2]
 
 lst2 = [*{*lst}]
+# lst2 = set(lst)
 lst3 = [num for num in lst if lst.count(num) == 1]
 
 print(lst2)
