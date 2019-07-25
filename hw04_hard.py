@@ -47,8 +47,11 @@ def process_user_choice(choice, person):
         print(check_account(person))
     # elif choice == '2':
     elif choice == 2:
-        count = float(input('Сумма к снятию:'))
-        print(withdraw_money(person, count))
+        try:
+            count = float(input('Сумма к снятию:'))
+            print(withdraw_money(person, count))
+        except ValueError:
+            print('Некорректная сумма')
     else:
         print('Нет такого пункта')
 
@@ -59,27 +62,27 @@ def start():
     # pin_code = int(pin_code)
     try:
         card_number, pin_code = input('Введите номер карты и пин код через пробел:').split()
-    except ValueError:
-        print('Введите и номер карты и пин код\n')
-        return start()
-
-    try:
         card_number = int(card_number)
         pin_code = int(pin_code)
     except ValueError:
-        print('Необходимо вводить цифры\n')
+        print('Вы ввели некорректные данные\n')
         return start()
 
     person = get_person_by_card(card_number)
 
     if person and is_pin_valid(person, pin_code):
         while True:
-            choice = int(input('Выберите пункт:\n'
-                               '1. Проверить баланс\n'
-                               '2. Снять деньги\n'
-                               '3. Выход\n'
-                               '---------------------\n'
-                               'Ваш выбор:'))
+            try:
+                choice = int(input('Выберите пункт:\n'
+                                   '1. Проверить баланс\n'
+                                   '2. Снять деньги\n'
+                                   '3. Выход\n'
+                                   '---------------------\n'
+                                   'Ваш выбор:'))
+            except ValueError:
+                print('Неверный ввод')
+                continue
+
             if choice == 3:
                 break
             process_user_choice(choice, person)

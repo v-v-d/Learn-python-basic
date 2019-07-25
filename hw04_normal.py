@@ -23,7 +23,7 @@ user_name = input('Type your name: ')
 user_surname = input('Type your surname: ')
 user_email = input('Type your email: ')
 
-name_and_surname_pattern = r'^[A-ZА-Я][a-zа-я]+$'
+name_and_surname_pattern = r'^[A-ZА-ЯЁ][a-zа-яё]*$'
 email_pattern = r'^[a-z0-9_]+@[a-z0-9]+\.(ru|org|com)$'
 
 print(validation_message(name_and_surname_pattern, user_name))
