@@ -33,13 +33,13 @@ def get_player(name, health, damage, armor):
 
 
 def write_player_data_to_file(player):
-    with open(f"{player['name']}.txt", "w") as file:
+    with open(f"{player['name']}.txt", "w", encoding='UTF-8') as file:
         for key, value in player.items():
             file.write(f'{key} - {value}\n')
 
 
-def get_dict_from_file(player_1):
-    with open(f"{player_1['name']}.txt", "r") as file:
+def get_dict_from_file(player):
+    with open(f"{player['name']}.txt", "r", encoding='UTF-8') as file:
         player_dict = {}
         for line in file:
             stripped_line = line.strip().split(' - ')
