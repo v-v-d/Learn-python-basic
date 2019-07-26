@@ -9,17 +9,17 @@ import os
 def make_dir(dirname):
     try:
         os.mkdir(os.path.join(os.getcwd(), dirname))
-        return f'{dirname} is successfully created'
-    except FileExistsError:
-        return f'Can\'t make a {dirname} cause it\'s already exists'
+        return 'Папка создана'
+    except FileExistsError as e:
+        return f'{e}'
 
 
 def delete_dir(dirname):
     try:
         os.rmdir(os.path.join(os.getcwd(), dirname))
-        return f'{dirname} is successfully deleted'
-    except FileNotFoundError:
-        return 'Can\'t delete a dir cause it\'s not exists'
+        return 'Папка удалена'
+    except FileNotFoundError as e:
+        return f'{e}'
 
 
 # # Задача-2:
@@ -43,13 +43,13 @@ def get_copyfile(filename):
     try:
         file_name, ext = filename.split('.')
         shutil.copyfile(f'{file_name}.{ext}', f'{file_name}-copy.{ext}')
-        return f'{file_name}-copy.{ext} is successfully created'
-    except FileNotFoundError:
-        return f'Can\'t make a {filename} copy cause it\'s not exists'
-    except ValueError:
-        return 'Please type a filename with extension'
-    except AttributeError and NameError:
-        return 'Filename must be a string'
+        return 'Копия файла создана'
+    except FileNotFoundError as e:
+        return f'{e}'
+    except ValueError as e:
+        return f'{e}'
+    except AttributeError and NameError as e:
+        return f'{e}'
 
 
 if __name__ == '__main__':
