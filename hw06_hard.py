@@ -13,24 +13,86 @@
 # исходя из типа игрушки отдавать конкретный объект класса, который наследуется от базового - Игрушка
 
 
-class ToyFactory:
-    def __init__(self, name, color, toy_type):
+class Toy:
+
+    def __init__(self, name, color):
         self.name = name
         self.color = color
-        self.toy_type = toy_type
-
-    def buy_materials(self):
-        print('The materials was buyed')
-
-    def sew(self):
-        print('The toys was sewed')
-
-    def color(self):
-        print('The toys was colored')
 
 
-class Toy(ToyFactory):
-    pass
+class ToyAnimal(Toy):
+
+    def __init__(self, name, color):
+        super().__init__(name, color)
+        self._type = 'Животное'
 
 
-toy = Toy('toy', 'green', 'animal')
+class ToyCartoon(Toy):
+
+    def __init__(self, name, color):
+        super().__init__(name, color)
+        self._type = 'Мультфильм'
+
+
+class ToyToxic(Toy):
+
+    def __init__(self, name, color):
+        super().__init__(name, color)
+        self._type = 'Токсичная игрушка'
+
+
+class ToyFactory:
+
+    def create_toy(self, name, color, toy_type):
+        self._buy_raw_materials()
+        self._sewing()
+        self._set_color()
+        if toy_type == 'Животное':
+            return ToyAnimal(name, color)
+        elif toy_type == 'Мультфильм':
+            return ToyCartoon(name, color)
+        else:
+            return ToyToxic(name, color)
+
+    def _buy_raw_materials(self):
+        print('Закупка материалов.')
+
+    def _sewing(self):
+        print('Пошивка игрушки.')
+
+    def _set_color(self):
+        print('Окраска игрушки.')
+
+
+factory = ToyFactory()
+toy = factory.create_toy('Вася', 'синий', 'Животное')
+print(isinstance(toy, ToyCartoon))
+print(isinstance(toy, ToyAnimal))
+print(isinstance(toy, Toy))
+
+if isinstance(toy, ToyToxic):
+    print('Опасно для детей!')
+else:
+    print('Можно дать ребенку')
+
+# class ToyFactory:
+#     def __init__(self, name, color, toy_type):
+#         self.name = name
+#         self.color = color
+#         self.toy_type = toy_type
+#
+#     def buy_materials(self):
+#         print('The materials was buyed')
+#
+#     def sew(self):
+#         print('The toys was sewed')
+#
+#     def color(self):
+#         print('The toys was colored')
+#
+#
+# class Toy(ToyFactory):
+#     pass
+#
+#
+# toy = Toy('toy', 'green', 'animal')
