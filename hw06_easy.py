@@ -43,23 +43,24 @@ class PoliceCar(Car):
     pass
 
 
-town_car_1 = TownCar(120, 'black', 'audi', False)
-sport_car_1 = SportCar(350, 'red', 'ferrari', False)
-work_car_1 = WorkCar(80, 'yellow', 'kamaz', False)
-police_car_1 = PoliceCar(120, 'white-blue', 'mercedes', True)
+if __name__ == '__main__':
+    town_car_1 = TownCar(120, 'black', 'audi', False)
+    sport_car_1 = SportCar(350, 'red', 'ferrari', False)
+    work_car_1 = WorkCar(80, 'yellow', 'kamaz', False)
+    police_car_1 = PoliceCar(120, 'white-blue', 'mercedes', True)
 
-print(town_car_1.go())
-print(town_car_1.stop())
-print(town_car_1.turn('right'))
+    print(town_car_1.go())
+    print(town_car_1.stop())
+    print(town_car_1.turn('right'))
 
-print(sport_car_1.go())
-print(sport_car_1.stop())
-print(sport_car_1.turn('left'))
+    print(sport_car_1.go())
+    print(sport_car_1.stop())
+    print(sport_car_1.turn('left'))
 
-print(work_car_1.go())
-print(work_car_1.stop())
-print(work_car_1.turn('right'))
+    print(work_car_1.go())
+    print(work_car_1.stop())
+    print(work_car_1.turn('right'))
 
-print(police_car_1.go())
-print(police_car_1.stop())
-print(police_car_1.turn('left'))
+    print(police_car_1.go())
+    print(police_car_1.stop())
+    print(police_car_1.turn('left'))
