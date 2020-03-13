@@ -90,8 +90,10 @@ def get_list_el_iterator(input_list, qty):
 # факториал четырёх 4! = 1 * 2 * 3 * 4 = 24.
 
 def fact(n):
-    for el in range(1, n + 1):
-        yield el
+    res = 1
+    for num in range(1, n + 1):
+        res *= num
+        yield res
 
 
 if __name__ == '__main__':
