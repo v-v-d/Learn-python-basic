@@ -31,7 +31,7 @@ class ComplexNumber:
     @staticmethod
     def is_complex(obj):
         if isinstance(obj, ComplexNumber):
-            return obj
+            return True
         raise ValueError(f'Object must be a complex number, got {type(obj)}.')
 
     def __mul__(self, other):
